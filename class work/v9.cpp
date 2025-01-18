@@ -56,25 +56,31 @@ void searchFlight(const vector<Flight>& flights) {
         string flightNumber;
         cout << "Enter flight number: ";
         cin >> flightNumber;
+        bool found = false;
         for (const auto& flight : flights) {
             if (flight.getFlightNumber() == flightNumber) {
                 flight.display();
-                return;
+                found = true;
             }
         }
-        cout << "Flight not found.\n";
+        if (!found) {
+            cout << "Flight not found.\n";
+        }
     }
     else if (choice == 2) {
         string destination;
         cout << "Enter destination: ";
         cin >> destination;
+        bool found = false;
         for (const auto& flight : flights) {
             if (flight.getDestination() == destination) {
                 flight.display();
-                return;
+                found = true;
             }
         }
-        cout << "Flight not found.\n";
+        if (!found) {
+            cout << "Flight not found.\n";
+        }
     }
     else {
         cout << "Invalid option.\n";
